@@ -40,6 +40,7 @@ def regression(points: list):
             plt.ylabel(labels[j])
             plt.subplots_adjust(bottom=0.2, top=0.9)
             plt.figtext(0.5, 0.025, f"f(x) = {a:.2f}x + {b:.2f}; r = {r:.2f}, r^2 = {r**2:.2f}", ha="center", color="black")
+            plt.gcf().set_size_inches(6, 6)
             plt.savefig(f"./output/area_regression/fig{i}_{j}.png", dpi=600, format="png")
             plt.close()
 

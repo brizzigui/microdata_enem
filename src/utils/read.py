@@ -141,3 +141,41 @@ def read_socioeconomic_data() -> list[list]:
         print(f"Read year {year}.")
 
     return data
+
+def read_uf_grades_socioeconomic() -> list[list]:
+    data = []
+
+    print("Reading data...")
+    for year in range(2020, 2025):
+        file_name = f"microdados_enem_{year}/DADOS/MICRODADOS_ENEM_{year}.csv" if year != 2024 else f"microdados_enem_{year}/DADOS/RESULTADOS_{year}.csv"
+        
+        with open(file_name, encoding="ISO-8859-1") as file:
+            labels = file.readline().strip().replace("\n", "").split(";")
+            labels = {label: i for i, label in enumerate(labels)}
+
+            useful_fields = ["TP_DEPENDENCIA_ADM_ESC", "SG_UF_ESC", "NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+            useful_fields = [labels[field] for field in useful_fields]
+
+            for row in file:
+                raw_vals = row.strip().replace("\n", "").split(";")
+                vals = []
+                for i, index in enumerate(useful_fields):
+                    if raw_vals[index] == "":
+                        break
+                    
+                    if i > 1:
+                        if not (float(raw_vals[index]) > 0):
+                            break
+
+                        vals.append(float(raw_vals[index]))
+                    
+                    else:
+                        vals.append(raw_vals[index])
+
+                
+                else:
+                    data.append(vals)
+
+        print(f"Read year {year}.")
+
+    return data

@@ -14,4 +14,5 @@ Creio que a principal diferença foi uma reestruturação feita em 2024 que sepa
 - Impacto de cada fator socioeconomico no desempenho (regressão?)
 - Clustering de questões (agrupamento) e comparação do modelo com análise textual feita por LLMs, para verificação de quanto podemos aferir sobre o conteúdo das questões só com clustering.
 - Modelo de redes neurais para previsão da nota final só com o questionário socioeconômico
-- Adicionem as suas...
+- Predizer ausência (compareceu vs ausente) — features: respostas socioeconômicas (classificação) (random forest)
+- Co-ocorrência de erros por questão: quais itens os alunos erram juntos — features: respostas por questão; objetivo: regras do tipo {q12=errado, q45=errado} => {q78=errado}

@@ -2,8 +2,9 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from utils.read import read_uf_grades_socioeconomic
+from utils.read import read_uf_grades_type
 
+# standardized upper and lower bounds for graph scales
 std_upper = 650
 std_lower = 450
 
@@ -126,7 +127,7 @@ def plot_rel_diff(data: list[list]) -> None:
 
 
 def main() -> None:
-    data = read_uf_grades_socioeconomic()
+    data = read_uf_grades_type()
     plot_avg(data)
     plot_rel_diff(data)
 

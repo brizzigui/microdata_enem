@@ -155,7 +155,7 @@ def read_socioeconomic_data_school_type() -> list[list]:
         except ValueError:
             return None
 
-    print("Reading socioeconomic data...")
+    print("Reading socioeconomic and school type data...")
     for year in range(2020, 2024):
         if year == 2022:
             continue
@@ -327,7 +327,7 @@ def read_attendance_data(year: int) -> pd.DataFrame:
     return df
 
 
-def read_error_data(year: int, sample_size: int = None) -> pd.DataFrame:
+def read_error_data(year: int) -> pd.DataFrame:
     
     file_name = f"microdados_enem_{year}/DADOS/MICRODADOS_ENEM_{year}.csv"
     
@@ -360,15 +360,12 @@ def read_error_data(year: int, sample_size: int = None) -> pd.DataFrame:
         for row in file:
             rows_read += 1
             
-            if sample_size and rows_processed >= sample_size:
-                break
-            
             raw_vals = row.strip().replace("\n", "").split(";")
             
-            student_errors = {}
+            student_errors = [False] * 180
             valid_row = True
             
-            for area in areas:
+            for area_index, area in enumerate(areas):
                 if area not in answer_indices or area not in answer_key_indices:
                     continue
                 
@@ -387,8 +384,7 @@ def read_error_data(year: int, sample_size: int = None) -> pd.DataFrame:
                         correct_answer = answer_key[q_idx]
                         
                         if student_answer != '.' and correct_answer != '.':
-                            question_id = f"q_{area}_{q_idx + 1:02d}"
-                            student_errors[question_id] = (student_answer != correct_answer)
+                            student_errors[area_index * 45 + q_idx] = (student_answer != correct_answer)
             
             if valid_row and len(student_errors) > 0:
                 error_data.append(student_errors)
@@ -400,7 +396,7 @@ def read_error_data(year: int, sample_size: int = None) -> pd.DataFrame:
         print(f"  Total rows read: {rows_read}")
         print(f"  Valid students processed: {rows_processed}")
 
-    df = pd.DataFrame(error_data)
+    df = pd.DataFrame(error_data, dtype=bool)
     
     df = df.fillna(False).astype(bool)
     

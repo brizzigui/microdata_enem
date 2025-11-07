@@ -1,353 +1,353 @@
 CO-OCORRÊNCIA DE ERROS - ENEM 2021
 TOP 50 REGRAS DE ASSOCIAÇÃO
 
-Rule #20563:
-  {q_LC_07} => {q_LC_06}
-  Support:    0.6955 (69.55%)
-  Confidence: 0.9092 (90.92%)
-  Lift:       1.1015
-  Conviction: 1.9222
+Rule #815:
+  {q_LC_6} => {q_LC_5}
+  Support:    0.7184 (71.84%)
+  Confidence: 0.9138 (91.38%)
+  Lift:       1.0935
+  Conviction: 1.9063
 
-Rule #20715:
-  {q_LC_07} => {q_LC_09}
-  Support:    0.6874 (68.73%)
-  Confidence: 0.8985 (89.85%)
-  Lift:       1.1078
-  Conviction: 1.8612
+Rule #891:
+  {q_LC_6} => {q_LC_8}
+  Support:    0.7125 (71.25%)
+  Confidence: 0.9064 (90.64%)
+  Lift:       1.0970
+  Conviction: 1.8561
 
-Rule #20566:
-  {q_LC_09} => {q_LC_06}
-  Support:    0.7273 (72.73%)
-  Confidence: 0.8967 (89.67%)
-  Lift:       1.0864
-  Conviction: 1.6901
+Rule #821:
+  {q_LC_9} => {q_LC_5}
+  Support:    0.7281 (72.81%)
+  Confidence: 0.9030 (90.30%)
+  Lift:       1.0806
+  Conviction: 1.6941
 
-Rule #20569:
-  {q_LC_10} => {q_LC_06}
-  Support:    0.7068 (70.68%)
-  Confidence: 0.8965 (89.65%)
-  Lift:       1.0862
-  Conviction: 1.6872
+Rule #819:
+  {q_LC_8} => {q_LC_5}
+  Support:    0.7460 (74.60%)
+  Confidence: 0.9030 (90.30%)
+  Lift:       1.0806
+  Conviction: 1.6937
 
-Rule #19745:
-  {q_LC_01} => {q_LC_04}
-  Support:    0.6277 (62.77%)
-  Confidence: 0.8926 (89.26%)
-  Lift:       1.1625
-  Conviction: 2.1623
+Rule #955:
+  {q_LC_9} => {q_LC_8}
+  Support:    0.7250 (72.50%)
+  Confidence: 0.8991 (89.91%)
+  Lift:       1.0883
+  Conviction: 1.7231
 
-Rule #19741:
-  {q_LC_01} => {q_LC_02}
-  Support:    0.6259 (62.59%)
-  Confidence: 0.8901 (89.01%)
-  Lift:       1.1641
-  Conviction: 2.1418
+Rule #889:
+  {q_LC_6} => {q_LC_7}
+  Support:    0.7060 (70.60%)
+  Confidence: 0.8981 (89.81%)
+  Lift:       1.1046
+  Conviction: 1.8344
 
-Rule #21005:
-  {q_LC_10} => {q_LC_09}
-  Support:    0.7007 (70.07%)
-  Confidence: 0.8887 (88.87%)
-  Lift:       1.0958
-  Conviction: 1.6982
+Rule #820:
+  {q_LC_5} => {q_LC_8}
+  Support:    0.7460 (74.60%)
+  Confidence: 0.8927 (89.27%)
+  Lift:       1.0806
+  Conviction: 1.6205
 
-Rule #20713:
-  {q_LC_07} => {q_LC_08}
-  Support:    0.6776 (67.76%)
-  Confidence: 0.8857 (88.57%)
-  Lift:       1.1152
-  Conviction: 1.8004
+Rule #896:
+  {q_LC_7} => {q_LC_8}
+  Support:    0.7208 (72.08%)
+  Confidence: 0.8865 (88.65%)
+  Lift:       1.0730
+  Conviction: 1.5312
 
-Rule #20567:
-  {q_LC_06} => {q_LC_09}
-  Support:    0.7273 (72.73%)
-  Confidence: 0.8811 (88.11%)
-  Lift:       1.0864
-  Conviction: 1.5892
+Rule #817:
+  {q_LC_7} => {q_LC_5}
+  Support:    0.7184 (71.84%)
+  Confidence: 0.8836 (88.36%)
+  Lift:       1.0574
+  Conviction: 1.4119
 
-Rule #19743:
-  {q_LC_01} => {q_LC_03}
-  Support:    0.6195 (61.95%)
-  Confidence: 0.8809 (88.09%)
-  Lift:       1.1643
-  Conviction: 2.0439
+Rule #899:
+  {q_LC_9} => {q_LC_7}
+  Support:    0.7119 (71.19%)
+  Confidence: 0.8829 (88.29%)
+  Lift:       1.0859
+  Conviction: 1.5959
 
-Rule #23978:
-  {q_LC_36} => {q_MT_22}
-  Support:    0.4379 (43.79%)
-  Confidence: 0.8759 (87.59%)
-  Lift:       1.0455
-  Conviction: 1.3069
+Rule #783:
+  {q_LC_0} => {q_LC_3}
+  Support:    0.5973 (59.73%)
+  Confidence: 0.8801 (88.01%)
+  Lift:       1.1822
+  Conviction: 2.1315
 
-Rule #14586:
-  {q_CH_14} => {q_MT_22}
-  Support:    0.3712 (37.12%)
-  Confidence: 0.8748 (87.48%)
-  Lift:       1.0441
-  Conviction: 1.2952
+Rule #893:
+  {q_LC_6} => {q_LC_9}
+  Support:    0.6914 (69.14%)
+  Confidence: 0.8794 (87.94%)
+  Lift:       1.0907
+  Conviction: 1.6063
 
-Rule #24231:
-  {q_LC_39} => {q_MT_22}
-  Support:    0.4702 (47.02%)
-  Confidence: 0.8744 (87.44%)
-  Lift:       1.0436
-  Conviction: 1.2910
+Rule #780:
+  {q_LC_0} => {q_LC_1}
+  Support:    0.5958 (59.58%)
+  Confidence: 0.8779 (87.79%)
+  Lift:       1.1876
+  Conviction: 2.1361
 
-Rule #20860:
-  {q_LC_08} => {q_LC_09}
-  Support:    0.6942 (69.42%)
-  Confidence: 0.8740 (87.40%)
-  Lift:       1.0776
-  Conviction: 1.4993
+Rule #954:
+  {q_LC_8} => {q_LC_9}
+  Support:    0.7250 (72.50%)
+  Confidence: 0.8775 (87.75%)
+  Lift:       1.0883
+  Conviction: 1.5811
 
-Rule #20565:
-  {q_LC_08} => {q_LC_06}
-  Support:    0.6935 (69.35%)
-  Confidence: 0.8731 (87.31%)
-  Lift:       1.0578
-  Conviction: 1.3759
+Rule #898:
+  {q_LC_7} => {q_LC_9}
+  Support:    0.7119 (71.19%)
+  Confidence: 0.8755 (87.55%)
+  Lift:       1.0859
+  Conviction: 1.5562
 
-Rule #19747:
-  {q_LC_01} => {q_LC_05}
-  Support:    0.6131 (61.31%)
-  Confidence: 0.8718 (87.18%)
-  Lift:       1.1629
-  Conviction: 1.9531
+Rule #897:
+  {q_LC_8} => {q_LC_7}
+  Support:    0.7208 (72.08%)
+  Confidence: 0.8724 (87.24%)
+  Lift:       1.0730
+  Conviction: 1.4650
 
-Rule #14547:
-  {q_CH_14} => {q_LC_04}
-  Support:    0.3699 (36.99%)
-  Confidence: 0.8717 (87.17%)
-  Lift:       1.1352
-  Conviction: 1.8092
+Rule #822:
+  {q_LC_5} => {q_LC_9}
+  Support:    0.7281 (72.81%)
+  Confidence: 0.8713 (87.13%)
+  Lift:       1.0806
+  Conviction: 1.5047
 
-Rule #19717:
-  {q_CH_45} => {q_MT_22}
-  Support:    0.4549 (45.49%)
-  Confidence: 0.8708 (87.08%)
-  Lift:       1.0394
-  Conviction: 1.2553
+Rule #782:
+  {q_LC_0} => {q_LC_2}
+  Support:    0.5907 (59.07%)
+  Confidence: 0.8703 (87.03%)
+  Lift:       1.1786
+  Conviction: 2.0172
 
-Rule #16503:
-  {q_CH_24} => {q_MT_22}
-  Support:    0.5806 (58.06%)
-  Confidence: 0.8706 (87.06%)
-  Lift:       1.0391
-  Conviction: 1.2530
-
-Rule #23585:
-  {q_LC_31} => {q_MT_22}
-  Support:    0.5147 (51.47%)
-  Confidence: 0.8698 (86.98%)
-  Lift:       1.0381
-  Conviction: 1.2453
-
-Rule #21869:
-  {q_LC_16} => {q_MT_22}
-  Support:    0.5230 (52.30%)
-  Confidence: 0.8696 (86.96%)
-  Lift:       1.0379
-  Conviction: 1.2438
-
-Rule #26169:
-  {q_MT_39} => {q_MT_22}
-  Support:    0.5262 (52.62%)
-  Confidence: 0.8691 (86.91%)
-  Lift:       1.0373
+Rule #1056:
+  {q_LC_15} => {q_MT_21}
+  Support:    0.5182 (51.82%)
+  Confidence: 0.8687 (86.87%)
+  Lift:       1.0375
   Conviction: 1.2388
 
-Rule #12433:
-  {q_CH_02} => {q_MT_22}
-  Support:    0.5357 (53.57%)
+Rule #890:
+  {q_LC_7} => {q_LC_6}
+  Support:    0.7060 (70.60%)
   Confidence: 0.8684 (86.84%)
-  Lift:       1.0366
-  Conviction: 1.2328
+  Lift:       1.1046
+  Conviction: 1.6247
 
-Rule #13747:
-  {q_CH_09} => {q_MT_22}
-  Support:    0.5442 (54.42%)
-  Confidence: 0.8681 (86.81%)
-  Lift:       1.0361
-  Conviction: 1.2292
+Rule #702:
+  {q_CH_23} => {q_MT_21}
+  Support:    0.5693 (56.93%)
+  Confidence: 0.8663 (86.63%)
+  Lift:       1.0346
+  Conviction: 1.2164
 
-Rule #22687:
-  {q_LC_23} => {q_MT_20}
-  Support:    0.4961 (49.61%)
-  Confidence: 0.8680 (86.80%)
-  Lift:       1.0770
-  Conviction: 1.4699
-
-Rule #13285:
-  {q_CH_07} => {q_MT_22}
-  Support:    0.5547 (55.47%)
-  Confidence: 0.8673 (86.73%)
-  Lift:       1.0351
-  Conviction: 1.2218
-
-Rule #20861:
-  {q_LC_10} => {q_LC_08}
-  Support:    0.6835 (68.35%)
-  Confidence: 0.8669 (86.69%)
-  Lift:       1.0915
-  Conviction: 1.5460
-
-Rule #12960:
-  {q_CH_05} => {q_MT_22}
-  Support:    0.4652 (46.52%)
-  Confidence: 0.8669 (86.69%)
-  Lift:       1.0347
-  Conviction: 1.2185
-
-Rule #24280:
-  {q_LC_40} => {q_MT_22}
-  Support:    0.4416 (44.16%)
-  Confidence: 0.8666 (86.66%)
-  Lift:       1.0343
-  Conviction: 1.2157
-
-Rule #1429:
-  {q_CN_05} => {q_MT_22}
-  Support:    0.5199 (51.99%)
+Rule #627:
+  {q_CH_1} => {q_MT_21}
+  Support:    0.5310 (53.10%)
   Confidence: 0.8662 (86.62%)
-  Lift:       1.0339
-  Conviction: 1.2121
+  Lift:       1.0345
+  Conviction: 1.2158
 
-Rule #17323:
-  {q_CH_30} => {q_MT_22}
-  Support:    0.5808 (58.08%)
-  Confidence: 0.8661 (86.61%)
-  Lift:       1.0338
-  Conviction: 1.2112
+Rule #1079:
+  {q_LC_30} => {q_MT_21}
+  Support:    0.5197 (51.97%)
+  Confidence: 0.8653 (86.53%)
+  Lift:       1.0335
+  Conviction: 1.2081
 
-Rule #16306:
-  {q_CH_23} => {q_MT_22}
-  Support:    0.4988 (49.88%)
-  Confidence: 0.8655 (86.55%)
+Rule #31:
+  {q_CN_4} => {q_MT_21}
+  Support:    0.5104 (51.04%)
+  Confidence: 0.8650 (86.50%)
   Lift:       1.0331
-  Conviction: 1.2061
+  Conviction: 1.2054
 
-Rule #21434:
-  {q_LC_12} => {q_MT_22}
-  Support:    0.4859 (48.59%)
-  Confidence: 0.8652 (86.52%)
-  Lift:       1.0327
-  Conviction: 1.2033
+Rule #1205:
+  {q_MT_38} => {q_MT_21}
+  Support:    0.5355 (53.55%)
+  Confidence: 0.8649 (86.49%)
+  Lift:       1.0330
+  Conviction: 1.2043
 
-Rule #20717:
-  {q_LC_07} => {q_LC_10}
-  Support:    0.6618 (66.18%)
-  Confidence: 0.8651 (86.51%)
-  Lift:       1.0972
-  Conviction: 1.5683
+Rule #646:
+  {q_CH_8} => {q_MT_21}
+  Support:    0.5409 (54.09%)
+  Confidence: 0.8645 (86.45%)
+  Lift:       1.0325
+  Conviction: 1.2006
 
-Rule #6221:
-  {q_CN_22} => {q_MT_22}
-  Support:    0.5368 (53.68%)
-  Confidence: 0.8647 (86.47%)
-  Lift:       1.0321
-  Conviction: 1.1991
-
-Rule #19911:
-  {q_LC_03} => {q_LC_02}
-  Support:    0.6539 (65.39%)
-  Confidence: 0.8643 (86.43%)
-  Lift:       1.1303
-  Conviction: 1.7344
-
-Rule #24613:
-  {q_LC_44} => {q_MT_22}
-  Support:    0.4843 (48.43%)
-  Confidence: 0.8642 (86.42%)
-  Lift:       1.0315
-  Conviction: 1.1940
-
-Rule #21004:
-  {q_LC_09} => {q_LC_10}
-  Support:    0.7007 (70.07%)
-  Confidence: 0.8639 (86.39%)
-  Lift:       1.0958
-  Conviction: 1.5549
-
-Rule #22781:
-  {q_LC_24} => {q_MT_20}
-  Support:    0.5098 (50.98%)
-  Confidence: 0.8637 (86.37%)
-  Lift:       1.0715
-  Conviction: 1.4229
-
-Rule #10039:
-  {q_CN_37} => {q_MT_20}
-  Support:    0.5027 (50.27%)
-  Confidence: 0.8629 (86.29%)
-  Lift:       1.0706
-  Conviction: 1.4153
-
-Rule #20241:
-  {q_LC_05} => {q_LC_04}
-  Support:    0.6468 (64.68%)
-  Confidence: 0.8628 (86.28%)
-  Lift:       1.1236
-  Conviction: 1.6918
-
-Rule #25309:
-  {q_MT_08} => {q_MT_22}
-  Support:    0.6129 (61.29%)
+Rule #892:
+  {q_LC_8} => {q_LC_6}
+  Support:    0.7125 (71.25%)
   Confidence: 0.8624 (86.24%)
-  Lift:       1.0294
-  Conviction: 1.1788
+  Lift:       1.0970
+  Conviction: 1.5546
 
-Rule #18608:
-  {q_CH_37} => {q_MT_22}
-  Support:    0.5258 (52.58%)
-  Confidence: 0.8624 (86.24%)
-  Lift:       1.0294
-  Conviction: 1.1787
-
-Rule #15794:
-  {q_CH_20} => {q_MT_22}
-  Support:    0.5160 (51.60%)
-  Confidence: 0.8624 (86.24%)
+Rule #272:
+  {q_CN_21} => {q_MT_21}
+  Support:    0.5317 (53.17%)
+  Confidence: 0.8618 (86.18%)
   Lift:       1.0293
-  Conviction: 1.1785
+  Conviction: 1.1775
 
-Rule #25000:
-  {q_MT_04} => {q_MT_22}
-  Support:    0.5354 (53.54%)
-  Confidence: 0.8620 (86.20%)
-  Lift:       1.0289
-  Conviction: 1.1756
+Rule #634:
+  {q_CH_6} => {q_MT_21}
+  Support:    0.5595 (55.95%)
+  Confidence: 0.8612 (86.12%)
+  Lift:       1.0285
+  Conviction: 1.1717
 
-Rule #21739:
-  {q_LC_15} => {q_MT_22}
-  Support:    0.5236 (52.36%)
-  Confidence: 0.8611 (86.11%)
+Rule #1121:
+  {q_MT_7} => {q_MT_21}
+  Support:    0.6061 (60.61%)
+  Confidence: 0.8610 (86.10%)
+  Lift:       1.0283
+  Conviction: 1.1706
+
+Rule #698:
+  {q_CH_22} => {q_MT_21}
+  Support:    0.5041 (50.41%)
+  Confidence: 0.8610 (86.10%)
+  Lift:       1.0283
+  Conviction: 1.1705
+
+Rule #715:
+  {q_CH_29} => {q_MT_21}
+  Support:    0.5803 (58.03%)
+  Confidence: 0.8606 (86.06%)
   Lift:       1.0278
-  Conviction: 1.1677
+  Conviction: 1.1668
 
-Rule #25770:
-  {q_MT_15} => {q_MT_22}
-  Support:    0.5816 (58.16%)
-  Confidence: 0.8609 (86.09%)
-  Lift:       1.0275
-  Conviction: 1.1658
+Rule #1148:
+  {q_MT_14} => {q_MT_21}
+  Support:    0.5725 (57.25%)
+  Confidence: 0.8598 (85.98%)
+  Lift:       1.0269
+  Conviction: 1.1607
 
-Rule #19913:
-  {q_LC_02} => {q_LC_04}
-  Support:    0.6582 (65.82%)
-  Confidence: 0.8608 (86.08%)
-  Lift:       1.1210
-  Conviction: 1.6677
+Rule #818:
+  {q_LC_5} => {q_LC_7}
+  Support:    0.7184 (71.84%)
+  Confidence: 0.8597 (85.97%)
+  Lift:       1.0574
+  Conviction: 1.3325
 
-Rule #20862:
-  {q_LC_08} => {q_LC_10}
-  Support:    0.6835 (68.35%)
-  Confidence: 0.8605 (86.05%)
-  Lift:       1.0915
-  Conviction: 1.5172
+Rule #816:
+  {q_LC_5} => {q_LC_6}
+  Support:    0.7184 (71.84%)
+  Confidence: 0.8597 (85.97%)
+  Lift:       1.0935
+  Conviction: 1.5238
 
-Rule #16604:
-  {q_CH_25} => {q_MT_22}
-  Support:    0.3759 (37.59%)
-  Confidence: 0.8605 (86.05%)
-  Lift:       1.0270
-  Conviction: 1.1623
+Rule #785:
+  {q_LC_0} => {q_LC_4}
+  Support:    0.5834 (58.34%)
+  Confidence: 0.8596 (85.96%)
+  Lift:       1.1752
+  Conviction: 1.9127
+
+Rule #1063:
+  {q_LC_23} => {q_MT_19}
+  Support:    0.5057 (50.57%)
+  Confidence: 0.8595 (85.95%)
+  Lift:       1.0743
+  Conviction: 1.4232
+
+Rule #1055:
+  {q_LC_14} => {q_MT_21}
+  Support:    0.5220 (52.20%)
+  Confidence: 0.8584 (85.84%)
+  Lift:       1.0252
+  Conviction: 1.1491
+
+Rule #1191:
+  {q_MT_24} => {q_MT_21}
+  Support:    0.6024 (60.24%)
+  Confidence: 0.8584 (85.84%)
+  Lift:       1.0252
+  Conviction: 1.1490
+
+Rule #1061:
+  {q_LC_20} => {q_MT_21}
+  Support:    0.5188 (51.88%)
+  Confidence: 0.8584 (85.84%)
+  Lift:       1.0251
+  Conviction: 1.1485
+
+Rule #757:
+  {q_CH_36} => {q_MT_21}
+  Support:    0.5354 (53.54%)
+  Confidence: 0.8574 (85.74%)
+  Lift:       1.0240
+  Conviction: 1.1411
+
+Rule #894:
+  {q_LC_9} => {q_LC_6}
+  Support:    0.6914 (69.14%)
+  Confidence: 0.8574 (85.74%)
+  Lift:       1.0907
+  Conviction: 1.5000
+
+Rule #517:
+  {q_CN_41} => {q_MT_21}
+  Support:    0.5321 (53.21%)
+  Confidence: 0.8574 (85.74%)
+  Lift:       1.0240
+  Conviction: 1.1409
+
+Rule #690:
+  {q_CH_19} => {q_MT_21}
+  Support:    0.5217 (52.17%)
+  Confidence: 0.8570 (85.70%)
+  Lift:       1.0236
+  Conviction: 1.1380
+
+Rule #1109:
+  {q_MT_3} => {q_MT_21}
+  Support:    0.5318 (53.18%)
+  Confidence: 0.8568 (85.68%)
+  Lift:       1.0233
+  Conviction: 1.1364
+
+Rule #1135:
+  {q_MT_11} => {q_MT_21}
+  Support:    0.6128 (61.28%)
+  Confidence: 0.8558 (85.58%)
+  Lift:       1.0221
+  Conviction: 1.1284
+
+Rule #1199:
+  {q_MT_32} => {q_MT_21}
+  Support:    0.6220 (62.20%)
+  Confidence: 0.8557 (85.57%)
+  Lift:       1.0220
+  Conviction: 1.1274
+
+Rule #79:
+  {q_CN_10} => {q_MT_21}
+  Support:    0.5676 (56.76%)
+  Confidence: 0.8555 (85.55%)
+  Lift:       1.0217
+  Conviction: 1.1256
+
+Rule #449:
+  {q_CN_29} => {q_MT_21}
+  Support:    0.6561 (65.61%)
+  Confidence: 0.8554 (85.54%)
+  Lift:       1.0215
+  Conviction: 1.1247
+
+Rule #743:
+  {q_CH_34} => {q_MT_21}
+  Support:    0.5474 (54.74%)
+  Confidence: 0.8550 (85.50%)
+  Lift:       1.0211
+  Conviction: 1.1220
 

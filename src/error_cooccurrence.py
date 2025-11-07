@@ -9,7 +9,7 @@ import warnings
 
 warnings.filterwarnings('ignore', category=FutureWarning, message='.*Downcasting object dtype.*')
 
-def mine_association_rules(df: pd.DataFrame, min_support: float = 0.3, 
+def mine_association_rules(df: pd.DataFrame, min_support: float = 0.5, 
                            min_confidence: float = 0.6, max_len: int = 2) -> pd.DataFrame:
     
     print(f"Mining Association Rules")
@@ -22,7 +22,7 @@ def mine_association_rules(df: pd.DataFrame, min_support: float = 0.3,
     
     print("\nRunning Apriori algorithm...")
     frequent_itemsets = apriori(df, min_support=min_support, use_colnames=True, 
-                                max_len=max_len, verbose=1)
+                                max_len=max_len, verbose=1, low_memory=True)
     
     print(f"  Found {len(frequent_itemsets)} frequent itemsets")
     
@@ -50,7 +50,9 @@ def mine_association_rules(df: pd.DataFrame, min_support: float = 0.3,
 
 def format_itemset(itemset):
 
+    areas = ["CN", "CH", "LC", "MT"]
     items = sorted(list(itemset))
+    items = [f"q_{areas[i//45]}_{i%45}" for i in items]
     return "{" + ", ".join(items) + "}"
 
 
@@ -149,18 +151,14 @@ def main():
     
     # Configurações
     years = [2020, 2021, 2022, 2023]
-    min_support = 0.3
-    min_confidence = 0.6
+    min_support = 0.5
+    min_confidence = 0.8
     max_len = 2
     top_n = 50
-    
-    sample_size = 100000  # 100k alunos por ano para processamento mais rápido
-    
+        
     for year in years:
-        print(f"\nANALYZING YEAR {year}")
-
         try:
-            df_errors = read_error_data(year, sample_size=sample_size)
+            df_errors = read_error_data(year)
             
             if df_errors.empty:
                 print(f"  WARNING: No data for year {year}. Skipping.")

@@ -35,11 +35,6 @@ def cluster(data: list[list], types: list[int]) -> None:
 
     plt.figure(figsize=(8, 6))
     scatter = plt.scatter(data_2d[:, 0], data_2d[:, 1], c=labels, cmap='viridis', s=10)
-    plt.scatter(
-        centers_2d[:, 0], centers_2d[:, 1],
-        c='red', s=200, marker='X', label='Centroids'
-    )
-
     for i, (x, y) in enumerate(centers_2d):
         plt.text(x, y, f"C{i}", color='black', fontsize=12,
                  ha='center', va='center', fontweight='bold',
@@ -48,7 +43,6 @@ def cluster(data: list[list], types: list[int]) -> None:
     plt.title("Clustering K-Means (Dimensionalidade reduzida com PCA)")
     plt.xlabel("Principal Component 1")
     plt.ylabel("Principal Component 2")
-    plt.legend()
     plt.tight_layout()
     plt.savefig("./output/clustering/socioeconomic_schooltype.png", dpi=600)
     plt.close()

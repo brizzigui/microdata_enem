@@ -10,13 +10,15 @@ import warnings
 warnings.filterwarnings('ignore', category=FutureWarning, message='.*Downcasting object dtype.*')
 
 def mine_association_rules(df: pd.DataFrame, min_support: float = 0.5, 
-                           min_confidence: float = 0.6, max_len: int = 2) -> pd.DataFrame:
+                           min_confidence: float = 0.6, max_len: int = 2,
+                           min_lift: float | None = None) -> pd.DataFrame:
     
     print(f"Mining Association Rules")
     print(f"Parameters:")
     print(f"  min_support: {min_support}")
     print(f"  min_confidence: {min_confidence}")
     print(f"  max_len: {max_len}")
+    print(f"  min_lift: {min_lift}")
     
     start_time = time.time()
     
@@ -40,6 +42,15 @@ def mine_association_rules(df: pd.DataFrame, min_support: float = 0.5,
         print("  WARNING: No rules found. Try lowering min_confidence.")
         return pd.DataFrame()
     
+    if min_lift is not None:
+        before_count = len(rules)
+        rules = rules[rules['lift'] >= min_lift]
+        after_count = len(rules)
+        print(f"  Filtered rules by min_lift >= {min_lift}: {before_count} -> {after_count}")
+        if len(rules) == 0:
+            print("  WARNING: No rules remain after applying min_lift filter. Try lowering min_lift or min_confidence.")
+            return pd.DataFrame()
+
     rules = rules.sort_values('confidence', ascending=False)
     
     elapsed_time = time.time() - start_time
@@ -50,8 +61,27 @@ def mine_association_rules(df: pd.DataFrame, min_support: float = 0.5,
 
 def format_itemset(itemset):
 
+    try:
+        items = sorted(list(itemset))
+    except Exception:
+        items = list(itemset)
+
+    if 'COLUMN_MAPPING' in globals() and globals()['COLUMN_MAPPING'] is not None:
+        mapping = globals()['COLUMN_MAPPING']
+        mapped = []
+        for i in items:
+            try:
+                idx = int(i)
+            except Exception:
+                idx = None
+            if idx is not None and 0 <= idx < len(mapping):
+                mapped.append(mapping[idx])
+            else:
+                mapped.append(f"idx_{i}")
+        return "{" + ", ".join(mapped) + "}"
+
     areas = ["CN", "CH", "LC", "MT"]
-    items = sorted(list(itemset))
+    items = sorted([int(i) for i in items])
     items = [f"q_{areas[i//45]}_{i%45}" for i in items]
     return "{" + ", ".join(items) + "}"
 
@@ -154,12 +184,21 @@ def main():
     min_support = 0.5
     min_confidence = 0.8
     max_len = 2
+    min_lift = 1.05
     top_n = 50
         
     for year in years:
         try:
-            df_errors = read_error_data(year)
-            
+            res = read_error_data(year, max_rows=None, return_mapping=True)
+            if isinstance(res, tuple):
+                df_errors, col_map = res
+            else:
+                df_errors = res
+                col_map = None
+
+            global COLUMN_MAPPING
+            COLUMN_MAPPING = col_map
+
             if df_errors.empty:
                 print(f"  WARNING: No data for year {year}. Skipping.")
                 continue
@@ -167,7 +206,8 @@ def main():
             rules = mine_association_rules(df_errors, 
                                           min_support=min_support,
                                           min_confidence=min_confidence,
-                                          max_len=max_len)
+                                          max_len=max_len,
+                                          min_lift=min_lift)
             
             if rules.empty:
                 print(f"  WARNING: No rules found for year {year}. Skipping.")

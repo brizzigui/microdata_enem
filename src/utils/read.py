@@ -327,80 +327,171 @@ def read_attendance_data(year: int) -> pd.DataFrame:
     return df
 
 
-def read_error_data(year: int) -> pd.DataFrame:
-    
+def read_error_data(year: int, max_rows: int = None, return_mapping: bool = False):
+
     file_name = f"microdados_enem_{year}/DADOS/MICRODADOS_ENEM_{year}.csv"
-    
+
     print(f"\nReading error data for year {year}...")
     print(f"File: {file_name}")
-    
-    with open(file_name, encoding="ISO-8859-1") as file:
-        labels = file.readline().strip().replace("\n", "").split(";")
-        label_to_index = {label: i for i, label in enumerate(labels)}
-        
-        areas = ["CN", "CH", "LC", "MT"]
-        answer_indices = {}
-        answer_key_indices = {}
-        
-        for area in areas:
-            answer_field = f"TX_RESPOSTAS_{area}"
-            answer_key_field = f"TX_GABARITO_{area}"
-            
-            if answer_field in label_to_index:
-                answer_indices[area] = label_to_index[answer_field]
-            if answer_key_field in label_to_index:
-                answer_key_indices[area] = label_to_index[answer_key_field]
-        
-        print(f"Found answer fields for areas: {list(answer_indices.keys())}")
-        
+
+    items_file = f"microdados_enem_{year}/DADOS/ITENS_PROVA_{year}.csv"
+    try:
+        items_df = pd.read_csv(items_file, sep=';', encoding='ISO-8859-1', dtype=str, low_memory=False)
+        for col in ['CO_POSICAO', 'SG_AREA', 'CO_ITEM', 'TX_GABARITO', 'TX_COR', 'CO_PROVA']:
+            if col not in items_df.columns:
+                raise KeyError(f"Missing column {col} in {items_file}")
+    except Exception as e:
+        print(f"  Warning: could not read items file ({items_file}) - will use position-based mapping. Error: {e}")
+        items_df = None
+
+    areas = ['CN', 'CH', 'LC', 'MT']
+    per_area_provas = [[] for _ in range(4)]  
+    canonical_order = [[] for _ in range(4)]
+
+    if items_df is not None:
+        items_df['CO_POSICAO'] = items_df['CO_POSICAO'].astype(int)
+        for area_index, area in enumerate(areas):
+            df_area = items_df[items_df['SG_AREA'] == area]
+            if df_area.empty:
+                continue
+
+            for co_prova, grp in df_area.groupby('CO_PROVA'):
+                grp_sorted = grp.sort_values('CO_POSICAO')
+                items_list = list(grp_sorted['CO_ITEM'].astype(str))
+                key_list = list(grp_sorted['TX_GABARITO'].astype(str).fillna('.'))
+                key_str = ''.join(key_list)
+                per_area_provas[area_index].append((str(co_prova), items_list, key_str))
+
+            try:
+                df_ref = df_area[df_area['TX_COR'].str.upper().str.contains('BRAN')]
+                if not df_ref.empty:
+                    ref_prova = df_ref['CO_PROVA'].iloc[0]
+                else:
+                    ref_prova = df_area['CO_PROVA'].mode().iloc[0]
+
+                ref_grp = df_area[df_area['CO_PROVA'] == ref_prova].sort_values('CO_POSICAO')
+                canonical_order[area_index] = list(ref_grp['CO_ITEM'].astype(str))
+            except Exception:
+                canonical_order[area_index] = []
+
+    with open(file_name, encoding='ISO-8859-1') as file:
+        labels = file.readline().strip().replace('\n', '').split(';')
+
+        answer_indices = [None] * 4
+        answer_key_indices = [None] * 4
+        for i, area in enumerate(areas):
+            ans_field = f"TX_RESPOSTAS_{area}"
+            key_field = f"TX_GABARITO_{area}"
+            try:
+                answer_indices[i] = labels.index(ans_field)
+            except ValueError:
+                answer_indices[i] = None
+            try:
+                answer_key_indices[i] = labels.index(key_field)
+            except ValueError:
+                answer_key_indices[i] = None
+
+        present_areas = [areas[i] for i in range(4) if answer_indices[i] is not None and answer_key_indices[i] is not None]
+        print(f"Found answer fields for areas: {present_areas}")
+
         error_data = []
         rows_read = 0
         rows_processed = 0
-        
+
         for row in file:
             rows_read += 1
-            
-            raw_vals = row.strip().replace("\n", "").split(";")
-            
+            if max_rows is not None and rows_read > max_rows:
+                break
+
+            raw_vals = row.strip().replace('\n', '').split(';')
             student_errors = [False] * 180
             valid_row = True
-            
-            for area_index, area in enumerate(areas):
-                if area not in answer_indices or area not in answer_key_indices:
+
+            for area_index in range(4):
+                ai = answer_indices[area_index]
+                aki = answer_key_indices[area_index]
+                if ai is None or aki is None:
                     continue
-                
-                answers = raw_vals[answer_indices[area]]
-                answer_key = raw_vals[answer_key_indices[area]]
-                
-                if not answers or not answer_key or answers == "" or answer_key == "":
+
+                if ai >= len(raw_vals) or aki >= len(raw_vals):
                     valid_row = False
                     break
-                
+
+                answers = raw_vals[ai]
+                answer_key = raw_vals[aki]
+                if not answers or not answer_key:
+                    valid_row = False
+                    break
+
+                mapped_items = None
+                if items_df is not None and per_area_provas[area_index]:
+                    for co_prova, items_list, key_str in per_area_provas[area_index]:
+                        if key_str == answer_key:
+                            mapped_items = items_list
+                            break
+
                 num_questions = min(len(answers), len(answer_key), 45)
-                
-                for q_idx in range(num_questions):
-                    if q_idx < len(answers) and q_idx < len(answer_key):
+
+                if mapped_items is not None:
+                    for q_idx in range(num_questions):
+                        if q_idx >= len(answers) or q_idx >= len(answer_key):
+                            break
                         student_answer = answers[q_idx]
                         correct_answer = answer_key[q_idx]
-                        
+                        if student_answer != '.' and correct_answer != '.':
+                            co_item = mapped_items[q_idx] if q_idx < len(mapped_items) else None
+                            if co_item is None:
+                                global_pos = area_index * 45 + q_idx
+                            else:
+                                try:
+                                    canonical_pos = canonical_order[area_index].index(co_item)
+                                    global_pos = area_index * 45 + canonical_pos
+                                except ValueError:
+                                    # fallback to positional
+                                    global_pos = area_index * 45 + q_idx
+
+                            if 0 <= global_pos < 180:
+                                student_errors[global_pos] = (student_answer != correct_answer)
+                else:
+                    # fallback: assume positions align
+                    for q_idx in range(num_questions):
+                        if q_idx >= len(answers) or q_idx >= len(answer_key):
+                            break
+                        student_answer = answers[q_idx]
+                        correct_answer = answer_key[q_idx]
                         if student_answer != '.' and correct_answer != '.':
                             student_errors[area_index * 45 + q_idx] = (student_answer != correct_answer)
-            
-            if valid_row and len(student_errors) > 0:
+
+            if valid_row:
                 error_data.append(student_errors)
                 rows_processed += 1
-                
                 if rows_processed % 50000 == 0:
                     print(f"  Processed {rows_processed} students...")
-        
-        print(f"  Total rows read: {rows_read}")
-        print(f"  Valid students processed: {rows_processed}")
+
+    print(f"  Total rows read: {rows_read}")
+    print(f"  Valid students processed: {rows_processed}")
 
     df = pd.DataFrame(error_data, dtype=bool)
-    
     df = df.fillna(False).astype(bool)
-    
+
     print(f"  DataFrame shape: {df.shape}")
     print(f"  Total questions: {df.shape[1]}")
-    
+
+    col_mapping = []
+    for area_index, area in enumerate(areas):
+        area_items = canonical_order[area_index]
+        for item in area_items:
+            col_mapping.append(f"{area}_{item}")
+        if len(area_items) < 45:
+            for i in range(len(area_items), 45):
+                col_mapping.append(f"{area}_pos{i}")
+
+    if len(col_mapping) > df.shape[1]:
+        col_mapping = col_mapping[:df.shape[1]]
+    elif len(col_mapping) < df.shape[1]:
+        for i in range(len(col_mapping), df.shape[1]):
+            col_mapping.append(f"idx_{i}")
+
+    if return_mapping:
+        return df, col_mapping
     return df

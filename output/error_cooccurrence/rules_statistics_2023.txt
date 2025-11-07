@@ -1,24 +1,24 @@
 ASSOCIATION RULES STATISTICS - ENEM 2023
 
-Total rules found: 3203
+Total rules found: 87
 
 Support Statistics:
-  Mean:   0.6107
-  Median: 0.6046
+  Mean:   0.5555
+  Median: 0.5377
   Min:    0.5001
-  Max:    0.8262
+  Max:    0.6938
 
 Confidence Statistics:
-  Mean:   0.8486
-  Median: 0.8442
-  Min:    0.8000
-  Max:    0.9341
+  Mean:   0.8444
+  Median: 0.8387
+  Min:    0.8016
+  Max:    0.9101
 
 Lift Statistics:
-  Mean:   1.0069
-  Median: 1.0015
-  Min:    0.9590
+  Mean:   1.0733
+  Median: 1.0653
+  Min:    1.0503
   Max:    1.1937
 
 Rules by antecedent size:
-  Size 1: 3203 rules
+  Size 1: 87 rules

@@ -1,24 +1,24 @@
 ASSOCIATION RULES STATISTICS - ENEM 2020
 
-Total rules found: 1531
+Total rules found: 100
 
 Support Statistics:
-  Mean:   0.5732
-  Median: 0.5672
-  Min:    0.5000
-  Max:    0.7225
+  Mean:   0.5876
+  Median: 0.5605
+  Min:    0.5015
+  Max:    0.7142
 
 Confidence Statistics:
-  Mean:   0.8215
-  Median: 0.8128
-  Min:    0.8000
+  Mean:   0.8517
+  Median: 0.8479
+  Min:    0.8012
   Max:    0.9405
 
 Lift Statistics:
-  Mean:   1.0183
-  Median: 1.0167
-  Min:    0.9648
+  Mean:   1.0765
+  Median: 1.0639
+  Min:    1.0500
   Max:    1.1991
 
 Rules by antecedent size:
-  Size 1: 1531 rules
+  Size 1: 100 rules

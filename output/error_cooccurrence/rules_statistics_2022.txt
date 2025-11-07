@@ -1,24 +1,24 @@
 ASSOCIATION RULES STATISTICS - ENEM 2022
 
-Total rules found: 5087
+Total rules found: 65
 
 Support Statistics:
-  Mean:   0.6172
-  Median: 0.6083
+  Mean:   0.5869
+  Median: 0.5882
   Min:    0.5001
-  Max:    0.8146
+  Max:    0.6854
 
 Confidence Statistics:
-  Mean:   0.8492
-  Median: 0.8509
-  Min:    0.8000
-  Max:    0.9443
+  Mean:   0.8477
+  Median: 0.8482
+  Min:    0.8002
+  Max:    0.9274
 
 Lift Statistics:
-  Mean:   1.0042
-  Median: 1.0012
-  Min:    0.9568
-  Max:    1.2434
+  Mean:   1.0818
+  Median: 1.0641
+  Min:    1.0504
+  Max:    1.1925
 
 Rules by antecedent size:
-  Size 1: 5087 rules
+  Size 1: 65 rules

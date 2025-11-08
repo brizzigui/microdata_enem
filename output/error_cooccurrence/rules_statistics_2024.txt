@@ -1,0 +1,24 @@
+ASSOCIATION RULES STATISTICS - ENEM 2024
+
+Total rules found: 108
+
+Support Statistics:
+  Mean:   0.5574
+  Median: 0.5529
+  Min:    0.5004
+  Max:    0.6714
+
+Confidence Statistics:
+  Mean:   0.8267
+  Median: 0.8171
+  Min:    0.8003
+  Max:    0.9169
+
+Lift Statistics:
+  Mean:   1.0773
+  Median: 1.0645
+  Min:    1.0504
+  Max:    1.2018
+
+Rules by antecedent size:
+  Size 1: 108 rules

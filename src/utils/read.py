@@ -329,7 +329,10 @@ def read_attendance_data(year: int) -> pd.DataFrame:
 
 def read_error_data(year: int, max_rows: int = None, return_mapping: bool = False):
 
-    file_name = f"microdados_enem_{year}/DADOS/MICRODADOS_ENEM_{year}.csv"
+    if(year!=2024):
+        file_name = f"microdados_enem_{year}/DADOS/MICRODADOS_ENEM_{year}.csv"
+    else:
+        file_name = f"microdados_enem_{year}/DADOS/RESULTADOS_{year}.csv"
 
     print(f"\nReading error data for year {year}...")
     print(f"File: {file_name}")

@@ -180,7 +180,7 @@ def main():
     print("  - top_rules: 50 per year")
     
     # Configurações
-    years = [2020, 2021, 2022, 2023]
+    years = [2020, 2021, 2022, 2023, 2024]
     min_support = 0.5
     min_confidence = 0.8
     max_len = 2

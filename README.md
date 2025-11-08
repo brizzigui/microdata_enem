@@ -1,18 +1,17 @@
 # Trabalho 2 de Mineração de Dados
 
+Integrantes: Guilherme Brizzi, Mathias Eckert Recktenvald, Ana Lilian Alfonso Toledo 
+
 ## Informações Relevantes
 
-As pastas `microdados_enem_[ano]` contém os microdados divulgados pelo INEP para aquele ano. A estrutura é similar, porém há algumas diferenças para as quais deve se atentar.
+Os microdados não foram inclusos devido a limitações de espaço. Juntos, todos os dados pesam em torno de 10GB. 
+Para baixá-los, dirija-se a https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem
 
-Juntos, todos os dados pesam em torno de 10GB. Então, baixem em uma pasta em que eles caibam: .
+Após o download, insira-os dentro da pasta `code` e nomeie a pasta de cada ano como `microdados_enem_[ano]`, para o funcionamento dos scripts desenvolvidos.
 
-Creio que a principal diferença foi uma reestruturação feita em 2024 que separou os dados do questionário socioeconômico do desempenho dos candidatos. Nos demais, isso está intacto. Dessa forma, para análises socioeconômicas, recomendo trabalharmos com o intervalo [2020, 2023].
+Recomenda-se a execução em ambiente com mínimo de 16GB de RAM, mas >=32GB é preferível.
 
-## O que minerar?
+## Estrutura
 
-- Quem vai bem na área X, vai bem na área Y? (regressão entre desempenho de cada área)
-- Impacto de cada fator socioeconomico no desempenho (regressão?)
-- Clustering de questões (agrupamento) e comparação do modelo com análise textual feita por LLMs, para verificação de quanto podemos aferir sobre o conteúdo das questões só com clustering.
-- Modelo de redes neurais para previsão da nota final só com o questionário socioeconômico
-- Predizer ausência (compareceu vs ausente) — features: respostas socioeconômicas (classificação) (random forest)
-- Co-ocorrência de erros por questão: quais itens os alunos erram juntos — features: respostas por questão; objetivo: regras do tipo {q12=errado, q45=errado} => {q78=errado}
+- A pasta `code` contém todo código e resultados dele.
+- `report.pdf` é o relatório.
